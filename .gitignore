@@ -1,0 +1,7 @@
+__pycache__/*
+mod_zips/*
+users.json
+servers.json
+Todo.md
+.env
+.venv/*

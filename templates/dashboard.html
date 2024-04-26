@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/styles/main.css">
+    <link rel="stylesheet" href="/static/styles/dashboard.css">
+    <link rel="stylesheet" href="/static/styles/overview.css">
+    <link rel="stylesheet" href="/static/styles/backups.css">
+    <link rel="stylesheet" href="/static/styles/options.css">
+    <link rel="stylesheet" href="/static/styles/files.css">
+    <link rel="stylesheet" href="/static/styles/download_mods.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <button class="open-sidebar-button" id="menu-button"><i class="fa-solid fa-bars"></i></button>
+
+        <div class="server-name">{{ server }}</div>
+    </div>
+
+    <div class="sidebar">
+
+        <div class="links">
+            
+            <a href="#overview" class="sidebar-link"><i class="fa-solid fa-house"></i>Overview</a>
+
+            <a href="#backups" class="sidebar-link"><i class="fa-solid fa-clone"></i>Backups</a>
+
+            <a href="#options" class="sidebar-link"><i class="fa-solid fa-list"></i>Options</a>
+
+            <a href="#files" class="sidebar-link"><i class="fa-regular fa-file"></i>Files</a>
+
+            <a href="#mods" class="sidebar-link"><i class="fa-solid fa-puzzle-piece"></i>Mods</a>
+
+
+            <a href="/servers" class="sidebar-link sidebar-link-bottom"><i class="fa-solid fa-server"></i>Servers</a>
+
+        </div>
+
+    </div>
+
+    <div id="content">
+
+    </div>
+
+    <script>
+        var server = "{{ server }}"
+    </script>
+    <script src="https://kit.fontawesome.com/6d95b1a75c.js" crossorigin="anonymous"></script>
+    <script src="/static/js/dashboard.js"></script>
+    <script src="/static/js/overview.js"></script>
+    <script src="/static/js/download_mods.js"></script>
+</body>
+</html>

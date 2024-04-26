@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap');
+
+body {
+    background-color: var(--darker-background);
+}
+
+.navbar {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 10%;
+    background-color: var(--darker-background);
+}
+
+.navbar::after {
+    content: " ";
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--background);
+    width: 98%;
+    height: .1rem;
+}
+
+.open-sidebar-button {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%) scale(2);
+    background-color: var(--darker-background);
+    margin-left: 10px;
+    border: none;
+    border-radius: 2px;
+    color: var(--darker-text);
+    z-index: 10;
+}
+
+.open-sidebar-button:hover {
+    cursor: pointer;
+}
+
+
+.sidebar {
+    position: absolute;
+    top: 0%;
+    left: -100%;
+    height: 100%;
+    min-width: 20%;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+
+    transition: left .3s;
+
+    z-index: 10;
+}
+
+.links {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+    font-family: 'Roboto', Times, serif;
+    font-size: 18pt;
+    width: 100%;
+    height: 100%;
+    margin-right: 50px;
+}
+
+.links a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    color: var(--text);
+    text-decoration: none;
+
+    text-indent: 10px;
+
+    /* Selected:  */
+    /* border-left: solid 3px var(--accent); */
+    /* background-image: linear-gradient(to right, var(--lighter-background), var(--background)); */
+}
+
+.sidebar-link-bottom {
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+}
+
+.sidebar-link i {
+    margin-right: 15px;
+}
+
+.links a:hover {
+    background-color: var(--lighter-background);
+}
+
+
+
+#content {
+    color: white;
+    position: absolute;
+    top: 10%;
+
+    margin-top: 20px;
+    font-family: 'Roboto', serif;
+}
+
+
+.loading-spinner {
+    height: 48px;
+    width: 48px;
+    color: rgba(90, 90, 90, 0.2);
+    display: inline-block;
+    border: 5px solid;
+    border-radius: 50%;
+    border-right-color: var(--primary-button);
+    animation: rotate 1s linear infinite;
+
+    margin: 20px;
+}
+
+.server-name {
+    position: relative;
+    color: white;
+    text-align: center;
+    top: 30%;
+    font-family: 'Roboto', serif;
+    font-weight: 500;
+    font-size: 20pt;
+}
+  
+@keyframes rotate {
+0% {
+    transform: rotate(0); }
+100% {
+    transform: rotate(360deg); } }

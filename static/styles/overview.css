@@ -1,0 +1,238 @@
+@font-face {
+    font-family: "Minecrafter";
+    src: url("/static/styles/fonts/Minecrafter.Reg.ttf") format("truetype");
+    font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+
+#content {
+    width: 90%;
+}
+
+
+.container {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /* background-color: white; */
+    gap: 40px;
+    margin-left: 1%;
+    margin-bottom: 30px;
+}
+
+.card {
+    width: 450px;
+    height: 400px;
+    background-color: var(--lighter-background);
+    border-radius: 15px;
+    /* box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0px 4px 0px rgb(0, 0, 0);
+    border-top: solid 15px var(--accent);
+    
+    outline: 1px solid rgba(59, 59, 59, 0.705) !important;
+
+    /* background: linear-gradient(71deg, #050609, #17171c, #050509); */
+
+    /* background: linear-gradient(71deg, #050609, #17171c, #050509); */    
+
+    background: linear-gradient(71deg, rgb(26,26,26), rgb(30, 30, 33), rgb(26,26,26));
+}
+
+.console-card {
+    width: 700px;
+    max-width: 100%;
+}
+
+.card-title {
+    color: var(--text);
+    font-family: 'Roboto', serif;
+    font-size: 24pt;
+    letter-spacing: -1px !important;
+    width: 100%;
+    text-align: center;
+    /* margin-left: 2rem; */
+}
+
+
+.serverstatus {
+    position: relative;
+    margin-top: 30px;
+    text-align: center;
+
+    /* color: rgb(231, 21, 21); */
+    /* color: rgb(14, 182, 14); */
+    /* font-family: 'Varela Round', sans-serif; */
+    /* font-weight: bolder; */
+    font-family: 'Minecrafter', sans-serif;
+    font-size: 32pt;
+    text-shadow: -3px 3px 0 #000,
+                    3px 3px 0 #000,
+                    3px -3px 0 #000;
+                    
+    opacity: .9;
+    letter-spacing: 3px;
+}
+
+.serverstatus-on {
+    color: rgb(14, 182, 14);
+}
+
+.serverstatus-off {
+    color: rgb(231, 21, 21);
+}
+
+.status-button {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 175px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--secondary-button);
+    color: var(--text);
+    font-family: 'Roboto', serif;
+    font-size: 18pt;
+    cursor: pointer;
+    transition: all .2s;
+    
+    /* box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); */
+}
+
+.status-button i {
+    margin-right: 10px;
+}
+
+.status-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.status-button:hover {
+    /* box-shadow: 0 0 30px .5px var(--secondary-button); */
+    /* transform: translateX(-50%) translateY(-3px); */
+    background-color: var(--dark-secondary);
+}
+
+.status-button:active {
+    background-color: var(--dark-secondary);
+}
+
+.start-button {
+    background-color: var(--primary-button);
+}
+
+.start-button:hover {
+    /* box-shadow: 0 0 30px .5px var(--primary-button); */
+    background-color: var(--dark-primary);
+}
+
+.start-button:active {
+    background-color: var(--dark-primary);
+}
+
+
+
+.console {
+    position: relative;
+    background-color: var(--lighter-background);
+    width: 80%;
+    height: 50%;
+    margin-left: 10%;
+    margin-top: 15px;
+    padding: 5px;
+    color: var(--darker-text);
+    min-height: 50%;
+    max-height: 50%;
+    max-height: 250px;
+    overflow-y: scroll;
+    /* scrollbar-color: red yellow; */
+    word-wrap: break-word;
+    font-family: "Roboto", sans-serif;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.console::-webkit-scrollbar {
+    width: 11px;
+}
+
+.console::-webkit-scrollbar-track {
+    background: var(--secondary-button);
+    border-top-right-radius: 10px;
+}
+.console::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+    border-radius: 3px;
+    border: 3px solid var(--accent);
+}
+
+.command-text {
+    position: relative;
+    background-color: var(--lighter-background);
+    width: 80%;
+    height: 40px;
+    margin-left: 10%;
+    color: var(--text);
+    outline: none !important;
+    border: none !important;
+    padding-left: 10px;
+    font-size: 12pt;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.command-text::placeholder {
+    color: var(--darker-text);
+}
+
+
+.player-list {
+    position: relative;
+    background-color: var(--lighter-background);
+    width: 80%;
+    height: 90%;
+    margin-left: 10%;
+    margin-top: 15px;
+    padding: 5px;
+    color: var(--darker-text);
+    min-height: 50%;
+    max-height: 50%;
+    max-height: 250px;
+    /* scrollbar-color: red yellow; */
+    word-wrap: break-word;
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+.player-element {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--background);
+    width: 100%;
+    height: 20%;
+    border-radius: 10px;margin-bottom: 5px;
+}
+
+.player-element p {
+    margin-left: 15px;
+    scale: 1.2;
+}
+
+.no-players {
+    text-align: center;
+}
+
+.player-img {
+    transform: scale(.7);
+}

@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap');
+@font-face {
+    font-family: "Minecraft";
+    src: url("/static/styles/fonts/Minecraft.ttf") format("truetype");
+    font-style: normal;
+}
+
+body {
+    background-color: var(--background);
+    font-family: Roboto, sans-serif;
+    color: var(--darker-text);
+}
+
+.server-table {
+    position: absolute;
+    font-family: Roboto, sans-serif;
+    /* letter-spacing: 2px; */
+    font-size: 18pt;
+    border-collapse: collapse;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.server-table td i {
+    margin-right: 15px;
+    transform: scale(1.4);
+}
+
+.server-table td, .server-table th {
+    /* border-bottom: 2px solid var(--lighter-background); */
+    padding: 20px;
+    font-size: 12pt;
+}
+
+.server-table tr {
+    background-color: var(--lighter-background);
+
+    transition: background-color 0.1s;
+}
+
+/* .server-table tr:nth-child(even) {
+    background-color: var(--background);
+} */
+
+.server-table tr:hover {
+    background-color: var(--primary-button);
+    cursor: pointer;
+    color: var(--text);
+}
+
+.table-top {
+    background-color: transparent !important;
+}
+
+.table-top:hover {
+    cursor: default !important;
+    background-color: transparent !important;
+}
+
+.server-table th {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: left;
+    background-color: transparent;
+    color: var(--text);
+}
+
+.page-title {
+    width: 100%;
+    text-align: center;
+}

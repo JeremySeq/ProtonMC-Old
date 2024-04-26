@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servers</title>
+    <link rel="stylesheet" href="/static/styles/main.css">
+    <link rel="stylesheet" href="/static/styles/servers.css">
+</head>
+<body>
+    <h1 class="page-title">Servers</h1>
+    <table class="server-table">
+        <tr class="table-top">
+            <th></th>
+        </tr>
+
+
+        {% for server in servers %}
+        <tr>
+            <td><i class="fa-solid fa-server"></i>{{ server.name }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <script src="https://kit.fontawesome.com/6d95b1a75c.js" crossorigin="anonymous"></script>
+    <script src="/static/js/servers.js"></script>
+</body>
+</html>

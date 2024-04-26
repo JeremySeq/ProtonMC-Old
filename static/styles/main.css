@@ -1,0 +1,23 @@
+:root {
+    --text: #ebebeb;
+    --darker-text: #acacac;
+
+
+
+    --background: #1f1f1f;
+    --darker-background: rgb(20, 20, 20);
+    --lighter-background: #292929;
+    
+
+    --primary-button: #3D58DC;
+    --dark-primary: #253894;
+
+
+
+    --secondary-button: #505050;
+    --dark-secondary: #414141;
+
+
+
+    --accent: #4DAEEF;
+}

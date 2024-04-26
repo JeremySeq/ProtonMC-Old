@@ -1,0 +1,56 @@
+
+
+<div class="container">
+    
+    <div class="card">
+        <h2 class="card-title">Status</h2>
+
+        {% if serverstatus == 'OFF' %}
+        <h3 class="serverstatus serverstatus-off">{{ serverstatus }}</h3>
+        {% endif %}
+
+        {% if serverstatus == 'ON' %}
+        <h3 class="serverstatus serverstatus-on">{{ serverstatus }}</h3>
+        {% endif %}        
+        
+        <div class="status-buttons">
+
+            <button class="status-button start-button" onclick="startServer()"><i class="fa-solid fa-play"></i>Start</button>
+
+            
+            <button class="status-button stop-button" onclick="stopServer()"><i class="fa-solid fa-stop"></i>Stop</button>
+        </div>
+    
+    </div>
+
+    <div class="card console-card">
+        <h2 class="card-title">Console</h2>
+
+        <div class="console" id="console">
+            
+        </div>
+
+        <div class="command">
+            <!-- <form action="/sendCommand/" method="post"> -->
+            <form onsubmit="return sendCommand()" name="commandForm">
+                
+                <input type="text" placeholder="Enter command" class="command-text" id="command" name="command" autocomplete="off">
+            </form>
+        </div>
+
+    </div>
+
+    <div class="card players-card">
+        <h2 class="card-title">Players</h2>
+
+        <div class="player-list">
+
+            <h3 class="no-players">No Players Online</h3>
+            <!-- <div class="player-element">
+                <img class="player-img" src="https://minotar.net/helm/username/100.png" alt="">
+                <p>Name</p>
+            </div> -->
+        </div>
+    </div>
+
+</div>

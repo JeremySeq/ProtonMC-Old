@@ -1,0 +1,45 @@
+.folder:hover {
+    cursor: pointer;
+    color: var(--accent);
+}
+
+.explorer-list li i {
+    margin-right: 10px;
+}
+
+.explorer-path {
+    max-width: 100%;
+    word-wrap: break-word;
+    background-color: var(--lighter-background);
+    padding: 5px;
+}
+
+.explorer-list {
+    width: max-content;
+}
+.explorer-list li {
+    list-style: none;
+    font-size: 18pt;
+    padding: 5px;
+}
+
+.explorer-heading {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    margin-left: 20px;
+}
+
+.back-button {
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 100%;
+}
+
+.back-button:hover {
+    cursor: pointer;
+    background-color: var(--accent);
+}

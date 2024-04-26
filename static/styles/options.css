@@ -1,0 +1,63 @@
+#content {
+    font-family: "Roboto", serif;
+}
+
+#content h2 {
+    font-size: 24pt;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--text);
+}
+
+
+.server-properties-container {
+    margin-left: 10px;
+    color: var(--darker-text);
+}
+
+.server-properties-container input {
+    background-color: var(--background);
+    border: solid 1.5px var(--darker-background);
+    padding: 6px;
+    font-size: 14pt;
+    color: var(--darker-text);
+    border-radius: 10px;
+    text-indent: 5px;
+}
+
+.server-properties-container input:focus {
+    border: solid 1.5px var(--primary-button);
+    outline: none;
+}
+
+.properties-table {
+    margin-top: 10px;
+}
+
+.save-properties {
+    width: 200px;
+    height: 40px;
+    margin-bottom: 20px;
+    font-size: 16pt;
+    border-radius: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--secondary-button);
+    color: var(--text);
+    font-family: 'Inter', serif;
+    font-size: 18pt;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.save-properties:hover {
+    background-color: var(--dark-secondary);
+}
+
+.save-properties:active {
+    background-color: var(--dark-secondary);
+}
+
+.properties-table td {
+    padding-right: 15px;
+}

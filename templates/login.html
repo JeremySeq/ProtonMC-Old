@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to Proton Panel</title>
+    <link rel="stylesheet" href="/static/styles/main.css">
+    <link rel="stylesheet" href="/static/styles/login.css">
+</head>
+<body>
+    <div class="container">
+        <form class="login-form" onsubmit="return validateForm()" name="form">
+            <h1 class="title">Login</h1>
+            
+            <input type="text" id="username" name="username" placeholder="Username" class="" autocomplete="off">
+            <input type="password" id="password" name="password" placeholder="Password" class="">
+            <div id="liveAlertPlaceholder"></div>
+
+            <button type="submit" class="login-button">Log In</button>
+          </form>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <h3>ProtonMC Alpha © 2024</h3>
+        <h3>created by Jeremy Sequeira</h3>
+    </div>
+
+    <script src="/static/js/login.js"></script>
+</body>
+</html>

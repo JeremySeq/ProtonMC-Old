@@ -1,0 +1,23 @@
+<div class="server-properties-container">
+    <h2>Server Properties Editor</h2>
+
+    <button class="save-properties">Save</button>
+
+    <table class="properties-table">
+        <tr>
+            <th>Property</th>
+            <th>Value</th>
+        </tr>
+    
+    
+        {% for property in properties %}
+        <tr>
+            <td class="property">{{ property }}</td>
+            <td><input type="text" class="value" value="{{ properties[property] }}"></td>
+        </tr>
+        {% endfor %}
+    
+    </table>
+    
+</div>
+
