@@ -3,7 +3,9 @@ import mc
 
 serversJson = "servers.json"
 
-def writeInfo(name: str, ip: str, query_port: int, rcon_port: int, password: str, server_location: str, backup_location: str):
+
+def writeInfo(name: str, ip: str, query_port: int, rcon_port: int, password: str, server_location: str,
+              backup_location: str):
     infoList = [name, ip, query_port, rcon_port, password, server_location, backup_location]
     file = open(serversJson, 'r')
     data = json.load(file)
@@ -18,9 +20,7 @@ def writeInfo(name: str, ip: str, query_port: int, rcon_port: int, password: str
     json.dump(data, file, indent=4)
     file.close()
 
-    
-    
-    
+
 def readInfo(name):
     file = open(serversJson, 'r')
     data = json.load(file)
@@ -28,7 +28,6 @@ def readInfo(name):
         return mc.MCserver(*data[name])
     except KeyError:
         pass
-
 
 
 def getServerInfo() -> list[mc.MCserver]:

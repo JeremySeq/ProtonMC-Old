@@ -11,6 +11,7 @@ import zipfile
 
 MAX_CONSOLE_LINES = 64
 
+
 class MCserver:
     def __init__(self, name, ip, query_port, rcon_port, password, server_location, backup_location):
         self.ip = ip
@@ -33,9 +34,9 @@ class MCserver:
             return False
         except ConnectionRefusedError as e:
             return False
-        
+
     def connectRCON(self) -> bool:
-        if (self.client_connected):
+        if self.client_connected:
             return True
         try:
             # self.client = Client(self.ip, self.rcon_port, timeout=1.5)
@@ -43,7 +44,7 @@ class MCserver:
             return True
         except ConnectionRefusedError as error:
             return False
-    
+
     def getSeed(self):
         with Client(self.ip, self.rcon_port, passwd=self.password) as client:
             seed = client.seed
@@ -62,11 +63,11 @@ class MCserver:
 
     def stop(self):
         self.runCommand("stop")
-        
+
     def runCommand(self, command):
-            with Client(self.ip, self.rcon_port, passwd=self.password) as client:
-                response = client.run(command)
-                self.console.append(response)
+        with Client(self.ip, self.rcon_port, passwd=self.password) as client:
+            response = client.run(command)
+            self.console.append(response)
 
     def backup(self):
         month = datetime.datetime.now().month
@@ -78,7 +79,7 @@ class MCserver:
         a = self.server_location
         b = f'{self.backup_location}\\{month}-{day}-{year}_{hour}-{minute}'
         os.mkdir(b)
-        
+
         self.copy(a, b)
         print("Done backup.")
 
@@ -95,9 +96,9 @@ class MCserver:
         for file_name in files:
             src = f"{origin}\\{file_name}"
             dst = f"{target}\\{file_name}"
-            if os.path.isfile(src) == True:
+            if os.path.isfile(src):
                 shutil.copy2(src, dst)
-            elif os.path.isdir(src) == True:
+            elif os.path.isdir(src):
                 os.mkdir(dst)
                 self.copy(src, dst)
 
@@ -105,9 +106,9 @@ class MCserver:
         files = os.listdir(target)
         for file_name in files:
             file = f"{target}\\{file_name}"
-            if os.path.isfile(file) == True:
+            if os.path.isfile(file):
                 os.remove(file)
-            elif os.path.isdir(file) == True:
+            elif os.path.isdir(file):
                 self.delete(file)
                 os.rmdir(file)
 
@@ -126,25 +127,25 @@ class MCserver:
             file = open(path, 'wb')
             file.write(content)
         file.close()
-    
+
     def backuplist(self):
 
         files = os.listdir(self.backup_location)
-        
+
         def get_datetime(entry):
             templist = entry.split("_")
             date = templist[0].split('-')
             time = templist[1].split('-')
-            
+
             month = int(date[0])
             day = int(date[1])
             year = int(date[2])
             hour = int(time[0])
             minute = int(time[1])
             return datetime.datetime(year, month, day, hour, minute)
-        
+
         sorted_backups = sorted(files, key=get_datetime, reverse=True)
-            
+
         return sorted_backups
 
     def getServerProperties(self):
@@ -156,9 +157,10 @@ class MCserver:
             if x.startswith("#"):
                 continue
 
-            if (x.startswith("rcon.password") or x.startswith("rcon.port") or x.startswith("query.port") or x.startswith("server-ip")):
+            if (x.startswith("rcon.password") or x.startswith("rcon.port") or x.startswith(
+                    "query.port") or x.startswith("server-ip")):
                 continue
-            
+
             templist = x.strip().split('=')
             propertiesDict[templist[0]] = templist[1]
         return propertiesDict
@@ -179,7 +181,6 @@ class MCserver:
         # writeFile = open(path, 'w')
         # writeFile.write('\n'.join(newList))
 
-        
         path = f"{self.server_location}\\server.properties"
         file = open(path, 'r')
         newList = file.readlines()
@@ -189,12 +190,11 @@ class MCserver:
             value = newProperties[key]
 
             for x in newList:
-                if (x.startswith("#")):
+                if x.startswith("#"):
                     continue
                 if x.strip().split("=")[0] == key:
                     newList[newList.index(x)] = f"{key}={value}\n"
-        
-        
+
         # Write entire list to file
         file.close()
         file = open(path, 'w')
@@ -207,13 +207,13 @@ class MCserver:
         filesDict = {}
         for file_name in files:
             file_loc = f"{dir}\\{file_name}"
-            if os.path.isfile(file_loc) == True:
+            if os.path.isfile(file_loc):
                 filesDict[file_name] = "file"
-            elif os.path.isdir(file_loc) == True:
+            elif os.path.isdir(file_loc):
                 filesDict[file_name] = "folder"
 
         return filesDict
-    
+
     def createModsZip(self):
         zf = zipfile.ZipFile(f"mod_zips/{self.name}.zip", "w")
         for dirname, subdirs, files in os.walk(os.path.join(self.server_location, "mods")):
@@ -226,16 +226,17 @@ class MCserver:
             return True
         else:
             return False
-    
+
     def startServer(self):
         serverRunPath = self.server_location + "run.bat"
 
         global s
-        s = subprocess.Popen("\"" + serverRunPath + "\"", stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        s = subprocess.Popen("\"" + serverRunPath + "\"", stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                             stderr=subprocess.STDOUT)
 
         def server_read_lines(process, queue):
             while True:
-                if (process.poll() is not None):
+                if process.poll() is not None:
                     return
                 queue.put((process.stdout.readline()).decode())
 
@@ -245,8 +246,7 @@ class MCserver:
         ts.daemon = True
         ts.start()
 
-
-        while s.poll() == None: # loop while the server process is running
+        while s.poll() is None:  # loop while the server process is running
 
             # just pass-through data from the server to the terminal output
             try:

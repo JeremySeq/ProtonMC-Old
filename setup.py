@@ -1,13 +1,14 @@
 import os
 import json
 
+
 def setup():
     willExit = False
     if os.path.isfile('users.json'):
         pass
     else:
         willExit = True
-        print ("users.json does not exist")
+        print("users.json does not exist")
         print('Creating users.json...')
 
         dictionary = {
@@ -17,19 +18,18 @@ def setup():
                 "permissions": 5
             }
         }
-        
+
         # Serializing json
         json_object = json.dumps(dictionary, indent=4)
         with open("users.json", "w") as outfile:
             outfile.write(json_object)
         print('DONE\nYou may want to add/change users in users.json before starting.')
 
-
     if os.path.isfile('servers.json'):
         pass
     else:
         willExit = True
-        print ("servers.json does not exist")
+        print("servers.json does not exist")
         print('Creating servers.json...')
 
         dictionary = {
@@ -43,15 +43,16 @@ def setup():
                 "C:\\Users\\user\\Documents\\MinecraftServers\\Backups\\AServer\\"
             ]
         }
-        
+
         # Serializing json
         json_object = json.dumps(dictionary, indent=4)
         with open("servers.json", "w") as outfile:
             outfile.write(json_object)
         print('DONE\nFill out servers.json before starting.')
 
-    if willExit == True:
+    if willExit:
         exit()
+
 
 if __name__ == '__main__':
     setup()
