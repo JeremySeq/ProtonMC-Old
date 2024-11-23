@@ -1,3 +1,6 @@
+# THIS REPOSITORY HAS BEEN ARCHIVED
+Check the new and improved [ProtonMC](https://github.com/JeremySeq/ProtonMC)
+
 # ProtonMC
 
 A website control panel for Minecraft servers. Made with Python Flask.
